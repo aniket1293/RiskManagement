@@ -6,12 +6,15 @@
   "license": "SAP SAMPLE CODE LICENSE",
   "repository": "https://github.com/SAP-samples/sap-learning-extension-suite",
   "dependencies": {
+    "@cap-js/hana": "^1",
     "@sap-cloud-sdk/http-client": "3.6.0",
-    "@sap/cds": "^7",
+    "@sap/cds": "^8.4.2",
+    "@sap/xssec": "^4",
     "express": "^4"
   },
   "devDependencies": {
     "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": "^8",
     "@sap/ux-specification": "^1.108.14"
   },
   "scripts": {
@@ -26,7 +29,14 @@
         "credentials": {
           "url": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_BUSINESS_PARTNER/"
         }
+      },
+      "[production]": {
+        "db": "hana",
+        "auth": "xsuaa"
       }
+    },
+    "sql": {
+      "native_hana_associations": false
     }
   },
   "sapux": [
